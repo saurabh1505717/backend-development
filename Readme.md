@@ -1,0 +1,1 @@
+# Avoid using special characters in DB password if using mongoDB, as it creates problems
