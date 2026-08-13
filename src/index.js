@@ -2,30 +2,28 @@
 
 import dotenv from "dotenv";
 import connectDB from "./db/dbconnection.js";
+import { app } from "./app.js"
 
 dotenv.config({
-    path: './env'
-})
+  path: "./env",
+});
 
 const port = process.env.PORT;
 
 connectDB()
-.then(() => {
+  .then(() => {
     // app.on("error", (error) => {
     //     console.log("ERROR: ", error);
     //     throw error
     // });
 
     app.listen(port || 8000, () => {
-        console.log(`Server is running at port: ${port}`);
-    })
-})
-.catch((err) => {
+      console.log(`Server is running at port: ${port}`);
+    });
+  })
+  .catch((err) => {
     console.log("MONGODB connection failed !!! ", err);
-})
-
-
-
+  });
 
 /*
 IIFE Code to connect to Database
