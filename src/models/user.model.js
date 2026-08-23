@@ -53,11 +53,10 @@ const userSchema = new Schema({
 // NOTE: We are writing normal function here and not arrow function as arrow function does not have access to "this" due to which we would not be able to refer to the current instances, so using normal function;
 
 // To encrypt the password just before saving it to database with the help of "pre" hook provided by mongoose and "bcrypt" - a js package; also encrypt and store only when its a new record or change in existing password like while update password or reset password; used "hash" method which takes two params, the password to be encrypted and "salt" i.e no. of rounds in encryption, e.g.: 10
-userSchema.pre("save", async function(next) {
-    if(!this.isModified("password")) return next();
+userSchema.pre("save", async function() {
+    if(!this.isModified("password")) return;
 
     this.password = await bcrypt.hash(this.password, 10);
-    next();
 })
 
 // custom hook/method to decrypt the encrypted password and compare with the db password, so one password provided by user and another is db password which can be referred to this.password 
