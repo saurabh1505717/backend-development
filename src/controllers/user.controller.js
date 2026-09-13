@@ -13,9 +13,9 @@ const generateAccessAndRefreshTokens = async (userId) => {
     const accessToken = user.generateAccessToken();
     const refreshToken = user.generateRefreshToken();
 
-    // added refresh token to dab user
+    // added refresh token to db user
     user.refreshToken = refreshToken;
-    await user.save({ vaidateBeforeSave: false }); // Saved in db after adding refresh token and removed any validation so that it does not start validating other things like password and all
+    await user.save({ validateBeforeSave: false }); // Saved in db after adding refresh token and removed any validation so that it does not start validating other things like password and all
 
     return { accessToken, refreshToken };
   } catch (error) {

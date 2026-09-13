@@ -4,7 +4,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import jwt from "jsonwebtoken";
 
 // export const verifyJWT = asyncHandler(async(req, res, next) => {
-export const verifyJWT = asyncHandler(async (req, _, next) => {
+export const verifyJWT = asyncHandler(async (req, _, next) => { // Here we have "_" in place of res, bcz res was not used anywhere, so in production grade codes, we come across such codes
   try {
     const token =
       req.cookies?.accessToken ||
