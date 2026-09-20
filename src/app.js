@@ -20,7 +20,8 @@ import userRouter from "./routes/user.routes.js"
 
 
 // routes declaration
-app.use("/api/v1/users", userRouter); // http://localhost:8000/api/v1/users/register
+app.use("/api/v1/users", userRouter); // http://localhost:8000/api/v1/users/${route from user routes}
+app.use("/api/v1/videos", videoRouter); // http://localhost:8000/api/v1/videos/{route from video routes}
 
 
 export { app };
