@@ -63,7 +63,7 @@ const getChannelStats = asyncHandler(async (req, res) => {
 });
 
 // To get all the videos uploaded by this channel
-const getchannelvideos = asyncHandler(async (req, res) => {
+const getChannelVideos = asyncHandler(async (req, res) => {
   const channelId = req.user?._id;
 
   if (!channelId) {
@@ -81,4 +81,4 @@ const getchannelvideos = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, videos, "Channel videos fetched successfully"));
 });
 
-export { getChannelStats, getchannelvideos };
+export { getChannelStats, getChannelVideos };
