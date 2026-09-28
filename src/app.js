@@ -20,6 +20,7 @@ import userRouter from "./routes/user.routes.js";
 import videoRouter from "./routes/video.routes.js";
 import dashboardRouter from "./routes/dashboard.routes.js";
 import subscriptionRouter from "./routes/subscription.routes.js";
+import tweetRouter from "./routes/tweet.routes.js";
 
 
 // routes declaration
@@ -27,6 +28,7 @@ app.use("/api/v1/users", userRouter); // http://localhost:8000/api/v1/users/${ro
 app.use("/api/v1/videos", videoRouter); // http://localhost:8000/api/v1/videos/{route from video routes}
 app.use("/api/v1/dashboard", dashboardRouter); // http://localhost:8000/api/v1/dashboard/{route from dashboard routes}
 app.use("/api/v1/subscription", subscriptionRouter); // http://localhost:8000/api/v1/subscription/{route from subscription routes}
+app.use("/api/v1/tweet", tweetRouter); // http://localhost:8000/api/v1/tweet/{route from tweet routes}
 
 
 export { app };
